@@ -1,9 +1,16 @@
 import { CONFIG } from "../../config/portfolioConfig";
 import { useTheme } from "../../theme/ThemeContext";
+import { formatExperienceYears } from "../../utils/experience";
 import { Btn } from "../common/Btn";
 
 export const Hero = () => {
   const { theme: { tokens: t, fonts } } = useTheme();
+  const experienceYears = formatExperienceYears(CONFIG.careerStartDate);
+  const stats = CONFIG.stats.map(stat =>
+    stat.dynamic && stat.value === "experienceYears"
+      ? { ...stat, value: experienceYears }
+      : stat
+  );
 
   return (
     <section id="hero" className="section" style={{
@@ -45,7 +52,7 @@ export const Hero = () => {
           </div>
 
           <div style={{ display: "flex", gap: 40, flexWrap: "wrap", marginTop: 64, paddingTop: 40, borderTop: `1px solid ${t.borderSurface}` }}>
-            {CONFIG.stats.map(s => (
+            {stats.map(s => (
               <div key={s.label}>
                 <div style={{ fontFamily: fonts.heading, fontSize: 32, fontWeight: 800, color: t.textPrimary }}>{s.value}</div>
                 <div style={{ fontSize: 11, letterSpacing: ".1em", color: t.textSubtle, textTransform: "uppercase", marginTop: 4 }}>{s.label}</div>

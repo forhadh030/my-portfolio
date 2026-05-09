@@ -9,17 +9,18 @@ export const CONFIG = {
   linkedin: "",
   linkedinStatus: "LinkedIn currently unavailable",
   resumeUrl: "/Syed_Hussain_Resume.pdf",
+  careerStartDate: "2021-10-01",
   contactForm: {
     provider: "Web3Forms",
     endpoint: "https://api.web3forms.com/submit",
   },
 
-  about: `I'm a results-driven Full Stack Developer with 4+ years of experience delivering scalable, high-performance applications across frontend, backend, and cloud environments.
+  about: `I'm a results-driven Full Stack Developer with {experienceYears} years of experience delivering scalable, high-performance applications across frontend, backend, and cloud environments.
 
 My work spans Java, Spring Boot, Angular, React, Python, AWS, CI/CD automation, Kubernetes deployments, and Retrieval-Augmented Generation systems. I enjoy building maintainable systems that move cleanly from code to production.`,
 
   stats: [
-    { value: "4+", label: "Years exp." },
+    { value: "experienceYears", label: "Years exp.", dynamic: true },
     { value: "4", label: "Professional roles" },
     { value: "3", label: "Certifications" },
   ],

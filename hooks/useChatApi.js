@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { CONFIG } from "../config/portfolioConfig";
+import { formatExperienceYears } from "../utils/experience";
 
 const includesAny = (text, terms) => terms.some(term => text.includes(term));
 const normalize = text => text.toLowerCase().replace(/[^\w\s+.#-]/g, " ");
@@ -13,7 +14,7 @@ const listSkills = category => {
 const summarizeExperience = () => {
   const [latest, ...previous] = CONFIG.experience;
   const previousCompanies = previous.map(item => item.company.split(" - ")[0]).filter((item, index, arr) => arr.indexOf(item) === index);
-  return `Syed has 4+ years of full-stack experience. His latest role is ${latest.role} on ${latest.company}, with previous work across ${previousCompanies.join(", ")}.`;
+  return `Syed has ${formatExperienceYears(CONFIG.careerStartDate)} years of full-stack experience. His latest role is ${latest.role} on ${latest.company}, with previous work across ${previousCompanies.join(", ")}.`;
 };
 
 const answerQuestion = question => {

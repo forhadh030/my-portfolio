@@ -1,5 +1,6 @@
 import { CONFIG } from "../../config/portfolioConfig";
 import { useTheme } from "../../theme/ThemeContext";
+import { formatExperienceYears } from "../../utils/experience";
 import { AnimSection } from "../common/AnimSection";
 import { Btn } from "../common/Btn";
 import { Section } from "../common/Section";
@@ -8,13 +9,15 @@ import { SectionHeader } from "../common/SectionHeader";
 export const About = () => {
   const { theme: { tokens: t, fonts } } = useTheme();
   const codeLines = CONFIG.profileCode;
+  const experienceYears = formatExperienceYears(CONFIG.careerStartDate);
+  const about = CONFIG.about.replace("{experienceYears}", experienceYears);
 
   return (
     <Section id="about">
       <SectionHeader label="About" title="Who I Am" />
       <div className="col-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
         <AnimSection delay={0.1}>
-          {CONFIG.about.split("\n\n").map((para, i) => (
+          {about.split("\n\n").map((para, i) => (
             <p key={i} style={{ fontSize: i === 0 ? 16 : 14, lineHeight: 2, color: i === 0 ? t.textSecondary : t.textMuted, marginBottom: 16, fontFamily: fonts.body, transition: "color .4s" }}>
               {para.trim()}
             </p>
