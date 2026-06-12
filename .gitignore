@@ -5,3 +5,5 @@ dist
 .env.local
 .env.*.local
 .publish
+github-readmes
+flagship-project-plan.md

@@ -41,10 +41,10 @@ export const Contact = () => {
                 {link.label}
               </a>
             ))}
-            <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 13, color: t.textDim, fontFamily: fonts.body }}>
+            {/* <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 13, color: t.textDim, fontFamily: fonts.body }}>
               <span style={{ width: 32, height: 32, border: `1px solid ${t.borderSurface}`, borderRadius: t.borderRadius, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, color: t.textDim, flexShrink: 0 }}>in</span>
               {CONFIG.linkedinStatus}
-            </div>
+            </div> */}
           </div>
         </AnimSection>
 
